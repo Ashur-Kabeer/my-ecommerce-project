@@ -23,10 +23,10 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-gray-100 shadow-md">
+    <header className="bg-gray-200 shadow-md">
       <div className="max-w-screen-xl mx-auto px-2 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold text-gray-700">🛍️Stop n Shop</Link>
+        <Link href="/" className="text-2xl font-bold text-gray-700">🛍Stop n Shop</Link>
 
         {/* Search Bar */}
         <div className="hidden md:flex items-center bg-white px-4 py-2 rounded-md w-[600px]">
@@ -42,8 +42,8 @@ const Header = () => {
 
         {/* Desktop Navigation */}
         <div className="flex items-center space-x-4">
-          <nav className="text-xl hidden md:flex items-center space-x-6">
-            <Link href="/contact" className="text-gray-800 hover:text-indigo-600">Contact</Link>
+          <nav className="text-lg hidden md:flex items-center space-x-6">
+            <Link href="/Contact" className="text-gray-800 hover:text-indigo-600">📞Contact</Link>
 
             {/* Language Selector Dropdown */}
             <div className="relative language-dropdown">
@@ -71,7 +71,9 @@ const Header = () => {
           </Link>
 
           <div className="relative">
+          <Link href="/CartPage" className="text-gray-800 hover:text-indigo-600">
             <AiOutlineShoppingCart className="text-3xl text-gray-800 hover:text-indigo-600" />
+            </Link>
             {/* Cart Badge (number of items) */}
             {/* <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1 py-2">0</span> */}
           </div>

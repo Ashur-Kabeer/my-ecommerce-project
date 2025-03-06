@@ -1,5 +1,5 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Carousel = () => {
   const images = [
@@ -21,6 +21,14 @@ const Carousel = () => {
       (prevIndex) => (prevIndex - 1 + images.length) % images.length
     );
   };
+
+  // Automatically slide every 3 seconds
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 3000); // Change slides every 3 seconds
+
+    // Cleanup the interval when the component is unmounted or when interval is no longer needed
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array ensures this effect runs only once
 
   return (
     <div className="relative w-full max-w-screen-full mx-auto">

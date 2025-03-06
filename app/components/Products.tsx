@@ -1,4 +1,6 @@
+'use client'
 import React from "react";
+import Link from "next/link";
 
 const products = [
   {
@@ -12,7 +14,7 @@ const products = [
     id: 2,
     name: "Smart Watch",
     description: "Track your fitness and stay connected.",
-    price: "AED 1,699",
+    price: "AED 1699",
     image: "https://c1.wallpaperflare.com/preview/348/623/683/technology-technology.jpg",
   },
   {
@@ -26,14 +28,14 @@ const products = [
     id: 4,
     name: "LED TV 55 inch",
     description: "Crystal clear 4K resolution with smart features.",
-    price: "AED 3,000",
+    price: "AED 3000",
     image: "https://5.imimg.com/data5/XW/OK/KP/SELLER-91900205/40inch-led-tv-full-hd-1000x1000.png",
   },
   {
     id: 5,
     name: "iPhone 16 plus",
     description: "Apple iOS (128 GB) Gold with new amazing features.",
-    price: "AED 3,499",
+    price: "AED 3499",
     image: "https://th.bing.com/th/id/OIP.tIxHEFtJGEtsN0Qj91G4BwHaEK?rs=1&pid=ImgDetMain",
   },
 ];
@@ -114,6 +116,32 @@ const bags = [
     },
   ];
 
+  // Function to handle adding an item to the cart
+  const addToCart = (item: any) => {
+    let cart: any[] = [];
+  
+    if (typeof window !== 'undefined') {
+      const storedCart = localStorage.getItem('cart') || '[]'; // Default to '[]' if null
+      cart = JSON.parse(storedCart);
+    }
+  
+    const existingItemIndex = cart.findIndex((cartItem: any) => cartItem.id === item.id);
+  
+    if (existingItemIndex >= 0) {
+      // Item already exists, increase the quantity
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      // Add new item to cart
+      item.quantity = 1;
+      cart.push(item);
+    }
+  
+    localStorage.setItem("cart", JSON.stringify(cart));
+  
+    // Alert message to inform user that the item is added to the cart
+    alert(`${item.name} has been added to your cart!`);
+  };
+  
 
 const Products = () => {
   return (
@@ -139,9 +167,12 @@ const Products = () => {
                 <p className="text-xl font-bold text-indigo-600 mt-4">
                   {product.price}
                 </p>
-                <button className="w-full mt-4 bg-gray-600 text-white py-2 rounded-md hover:bg-indigo-700">
+                <button
+                  onClick={() => addToCart(product)}  // Pass the correct product object to the function
+                  className="w-full mt-4 bg-gray-600 text-white py-2 rounded-md hover:bg-indigo-700">
                   Add to Cart
-                </button>
+                 </button>
+
               </div>
             </div>
           ))}
@@ -166,9 +197,11 @@ const Products = () => {
                 <p className="text-xl font-bold text-indigo-600 mt-4">
                   {bags.price}
                 </p>
-                <button className="w-full mt-4 bg-gray-600 text-white py-2 rounded-md hover:bg-indigo-700">
+                <button
+                  onClick={() => addToCart(bags)}  // Pass the correct product object to the function
+                  className="w-full mt-4 bg-gray-600 text-white py-2 rounded-md hover:bg-indigo-700">
                   Add to Cart
-                </button>
+                 </button>
               </div>
             </div>
           ))}
@@ -193,13 +226,23 @@ const Products = () => {
                 <p className="text-xl font-bold text-indigo-600 mt-4">
                   {offers.price}
                 </p>
-                <button className="w-full mt-4 bg-gray-600 text-white py-2 rounded-md hover:bg-indigo-700">
+                <button
+                  onClick={() => addToCart(offers)}  // Pass the correct product object to the function
+                  className="w-full mt-4 bg-gray-600 text-white py-2 rounded-md hover:bg-indigo-700">
                   Add to Cart
-                </button>
+                 </button>
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Link to Cart Page */}
+      <div className="fixed bottom-6 right-6">
+        <Link href="/CartPage"
+           className="bg-indigo-600 text-white py-2 px-6 rounded-full shadow-md hover:bg-indigo-700">
+            Go to Cart
+        </Link>
       </div>
     </div>
   );
