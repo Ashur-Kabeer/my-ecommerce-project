@@ -97,7 +97,7 @@ const CheckoutPage = () => {
 
         {/* Proceed to Payment Button */}
         <button
-          onClick={handleProceedToPayment}
+          onClick={() => window.location.href="/Payment"}
           className="mt-4 bg-indigo-600 text-white py-2 px-6 rounded-md hover:bg-indigo-700"
         >
           Proceed to Payment
@@ -105,7 +105,7 @@ const CheckoutPage = () => {
       </div>
 
       {/* Link back to the cart */}
-      <Link href="/cart">
+      <Link href="/CartPage">
         <span className="mt-4 block text-center text-indigo-600">Back to Cart</span>
       </Link>
     </div>

@@ -25,10 +25,10 @@ const Navbar = () => {
               All Categories
             </button>
             {isDropdownOpen && (
-              <div className=" absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md border">
+              <div className=" absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md border z-10">
                 <ul className="text-sm">
                   <li className="px-4 py-2 hover:bg-indigo-100 cursor-pointer">
-                    <Link href="/home">Women</Link>
+                    <Link href="/WomenPage">Women</Link>
                   </li>
                   <li className="px-4 py-2 hover:bg-indigo-100 cursor-pointer">
                     <Link href="/best-deals">Men</Link>

@@ -54,11 +54,12 @@ const Header = () => {
                 {selectedLanguage} <span className="ml-1">&#x25BC;</span>
               </button>
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-md border">
+                <div className="absolute right-0 mt-2 w-32 bg-white shadow-lg rounded-md border z-10">
                   <ul className="text-sm">
                     <li onClick={() => handleLanguageChange("EN")} className="px-4 py-2 hover:bg-indigo-100 cursor-pointer">EN</li>
                     <li onClick={() => handleLanguageChange("ES")} className="px-4 py-2 hover:bg-indigo-100 cursor-pointer">ES</li>
                     <li onClick={() => handleLanguageChange("FR")} className="px-4 py-2 hover:bg-indigo-100 cursor-pointer">FR</li>
+                    <li onClick={() => handleLanguageChange("AR")} className="px-4 py-2 hover:bg-indigo-100 cursor-pointer">AR</li>
                   </ul>
                 </div>
               )}
@@ -75,7 +76,9 @@ const Header = () => {
             <AiOutlineShoppingCart className="text-3xl text-gray-800 hover:text-indigo-600" />
             </Link>
             {/* Cart Badge (number of items) */}
-            {/* <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1 py-2">0</span> */}
+            <span className="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1 py-2">
+              0
+            </span>
           </div>
         </div>
       </div>
