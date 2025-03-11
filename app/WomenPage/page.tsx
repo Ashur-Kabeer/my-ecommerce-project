@@ -10,25 +10,25 @@ const WomenPage = () => {
     {
       id: 1,
       name: 'Elegant Dress',
-      price: '$49.99',
+      price: 'AED 49.99',
       image: '/images/elegant-dress.jpg',
     },
     {
       id: 2,
       name: 'Stylish Shoes',
-      price: '$29.99',
+      price: 'AED 29.99',
       image: '/images/stylish-shoes.jpg',
     },
     {
       id: 3,
       name: 'Classic Handbag',
-      price: '$39.99',
+      price: 'AED 39.99',
       image: '/images/classic-handbag.jpg',
     },
     {
       id: 4,
       name: 'Summer Blouse',
-      price: '$19.99',
+      price: 'AED 19.99',
       image: '/images/summer-blouse.jpg',
     },
     // Add more products as needed
